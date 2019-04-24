@@ -26,8 +26,8 @@ server.get('/', (req, res)=>{
   })
 })
 
-
-server.listen(8081, ()=>{
-  console.log(`A NodeJS API on port: ${8081}`)
+let port = process.env.PORT || 8080;
+server.listen(port, ()=>{
+  console.log(`A NodeJS API on port: ${port}`)
 
 });

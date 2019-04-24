@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'shazam';
+  songsList =
+  [
+  { title: 'First Song', autor: 'first song\'s autor' },
+  { title: 'Second Song', autor: 'second song\'s autor' },
+  { title: 'Third Song', autor: 'third song\'s autor' }
+];
+
+  //todo get posts function
 }

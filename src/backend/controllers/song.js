@@ -1,33 +1,40 @@
-const express = require('express');
+
 const fs = require('fs');
 const request = require('request');
 const cheerio = require('cheerio');
-const app     = express();
-const url = 'https://www.shazam.com/charts/top-200/world'
-//Scraping start
-exports.songsList = (req, res) => {
 
-	request(url, function (error, response, html) {
+
+//Scraping from site HTML
+/* exports.songsList = (req, res) => {
+  let parsedResults = new Array();
+  const url = 'https://www.shazam.com/charts/top-200/world'
+	request(url, (error, response, html) =>{
 	  	if (!error && response.statusCode == 200) {
-	    	let $ = cheerio.load(html);
-         let parsedResults = [];
+        let $ = cheerio.load(html);
+	      let title = $('.title').children('a').text();
+        let song = {"title":title};
+        parsedResults.push(song)
+        }
+	  	});
 
-	    	$('.details').each(function(i, element){
-          let title = [...document.querySelectorAll('.title a')].map((title)=>title.innerHTML)[i]
-          let artist =[...document.querySelectorAll('.artist a')].map((artist)=>artist.innerHTML)[i]
-          let song = {
-                    "title":title,
-                    "artist": artist
-	      		};
-
-	      		parsedResults.push(song);
-	    	});
-	    	console.log('title', title);
-	  	}
-
-	  	fs.writeFile('.backend/output.json', JSON.stringify(parsedResults, null, 4), function(err){
-	    	console.log('Sraping data successfully written! - Check your project public/output.json file');
+	  	fs.writeFile('./src/backend/output.json', JSON.stringify(parsedResults), function(err){
+	    	console.log('Sraping data successfully written! - Check your project output.json file');
 		});
-	  	res.send('Scraping Done...');
-	});
-};
+	  	res.send(parsedResults);
+	}; */
+
+
+
+exports.songsList = (req, res) => {
+  //const url = 'https://www.shazam.com/shazam/v2/en-US/IL/web/-/tracks/world-chart-world?pageSize=200&startFrom=0'
+
+  const url = 'http://fullstack-test-server.herokuapp.com/api/songs'
+
+  request( url, (error, response, body) =>{
+    if (!error && response.statusCode == 200)
+      {
+        fs.writeFile('./src/backend/output.json', body, function(err){
+	    	console.log('Sraping data successfully written! - Check your project output.json file');})
+        }});
+	  	res.send(this.title);
+  }
