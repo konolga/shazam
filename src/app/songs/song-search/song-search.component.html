@@ -1,0 +1,15 @@
+<mat-card>
+  <form (submit)="onSearchSong(songForm)" #songForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="title"
+        ngModel
+        minlength="3"
+        placeholder="Search song by title..."
+        #title="ngModel">
+        <mat-error *ngIf="title.invalid">Song not found</mat-error>
+      </mat-form-field>
+    </form>
+</mat-card>
