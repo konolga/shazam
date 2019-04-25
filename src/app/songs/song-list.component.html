@@ -1,0 +1,12 @@
+<h2>Top 200 songs from Shazam</h2>
+<mat-card multi = "true"  *ngFor="let song of songs">
+
+    <mat-card-header *ngIf="songs.length > 0">
+      <div mat-card-avatar></div>
+      <mat-card-title>{{ song.title }}</mat-card-title>
+      <mat-card-subtitle>{{ song.autor }}</mat-card-subtitle>
+    </mat-card-header>
+
+</mat-card>
+
+
