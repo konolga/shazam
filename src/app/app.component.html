@@ -1,8 +1,11 @@
-
 <app-header></app-header>
-<main>
-    <app-song-search>Search here... </app-song-search>
-    <app-song-list [songs]="songsList"></app-song-list>
 
+<main>
+    <app-song-search></app-song-search>
+    <app-song-list>
+        <app-loader></app-loader>
+    </app-song-list>
 </main>
+
+
 

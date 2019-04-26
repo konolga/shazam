@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Song } from '../song.model';
+import {SongsService} from '../songs.service';
 
 
 @Component({
@@ -13,18 +13,14 @@ import { Song } from '../song.model';
 export class SongSearchComponent {
   enteredTitle = '';
 
-  //constructor(public postsService: PostsService) {}
+  constructor(public songsService: SongsService) {}
 
   onSearchSong(form: NgForm) {
     if (form.invalid) {
       return;
     }
-    const song: Song = {
-        title: form.value.title,
-        subtitle: '',
-    };
-    return song.title;
-  //  this.postsService.searchSong(form.value.title, form.value.content);
+    const title = form.value.title;
+    this.songsService.searchSong(title);
     form.resetForm();
   }
 }
