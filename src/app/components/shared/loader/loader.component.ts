@@ -9,10 +9,9 @@ import { LoaderService } from './loader.service';
   styleUrls: ['./loader.component.css']
 })
 export class LoaderComponent {
-  color = 'primary';
   mode = 'indeterminate';
-  value = 50;
   isLoading: Subject<boolean> = this.loaderService.isLoading;
 
   constructor(private loaderService: LoaderService){}
+
 }

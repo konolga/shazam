@@ -13,16 +13,32 @@ const request = require('request');
   };
 
 
+
+
 exports.songsList = (req, res) => {
+  let arr = [{"title": "'First Song'", "subtitle": "first autor" },
+  { "title": "'Second Song'", "subtitle": "second autor" },
+  { "title": "'Third Song'", "subtitle": "third autor" }]
+let song;
+
   request( options, (error, response, body) =>{
     if (!error && response.statusCode == 200)
       {
-       // fs.writeFile('./src/backend/output.json', body,()=>{})
-        }});
-      res.send(
-       [{"title": "'First Song'", "subtitle": "first autor" },
-      { "title": "'Second Song'", "subtitle": "second autor" },
-      { "title": "'Third Song'", "subtitle": "third autor" }]
 
-      );
-  }
+        if(body["chart"] !=undefined)
+        {
+          body["chart"].forEach(el=>
+            {
+              let title = el["heading"]["title"];
+              let subtitle = el["heading"]["subtitle"];
+              this.song = {"title": title,"subtitle": subtitle}
+              this.arr.push(song)
+            })
+          }
+
+          fs.writeFile('./src/backend/output.json', body,()=>{})
+        }});
+        res.send(arr);
+     }
+
+

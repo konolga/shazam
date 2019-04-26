@@ -1,11 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import {MatCardModule, MatToolbarModule, MatInputModule, MatFormFieldModule } from '@angular/material';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatCardModule, MatToolbarModule, MatInputModule, MatFormFieldModule, MatProgressSpinnerModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -34,8 +32,8 @@ import {SongsService} from './songs/songs.service';
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
-    HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    HttpClientModule
   ],
   providers: [SongsService, LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
