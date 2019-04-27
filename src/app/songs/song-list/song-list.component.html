@@ -1,16 +1,20 @@
-<h2>Top 200 songs from Shazam</h2>
-<mat-card multi = "true"  *ngFor="let song of songs" >
-  <div
-    class="change-color"
-    ng-mouseover="hoverActive=true"
-    ng-mouseleave="hoverActive=false">
-    <mat-card-header *ngIf="songs.length > 0" >
-      <div mat-card-avatar></div>
-      <mat-card-title>{{ song.title | uppercase}}</mat-card-title>
-      <mat-card-subtitle>{{ song.subtitle }}</mat-card-subtitle>
-    </mat-card-header>
-  </div>
-</mat-card>
+
+
+    <mat-card class="change-color" ng-mouseover="hoverActive=true"
+    ng-mouseleave="hoverActive=false" multi = "true"  *ngFor="let song of songs" >
+        <mat-card-header *ngIf="songs.length > 0" >
+            <img mat-card-avatar src={{song.cover}} alt={{song.title}}>
+        <mat-card-title >
+        <span>{{ song.title | uppercase}}</span>
+        </mat-card-title>
+        <mat-card-subtitle>{{ song.subtitle }}</mat-card-subtitle>
+        <a  mat-button href={{song.link}} target="_blank">
+            <button class="button-row" ></button>
+        </a>
+      </mat-card-header>
+    </mat-card>
+
+
 
 
 

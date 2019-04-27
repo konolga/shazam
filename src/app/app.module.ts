@@ -34,6 +34,7 @@ import {SongsService} from './songs/songs.service';
     MatFormFieldModule,
     MatProgressSpinnerModule,
     HttpClientModule
+
   ],
   providers: [SongsService, LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }

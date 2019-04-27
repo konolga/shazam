@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {SongsService} from '../songs.service';
-
+import { Subject } from 'rxjs';
+import { Song } from '../song.model';
 
 @Component({
   selector: 'app-song-search',
@@ -11,16 +12,13 @@ import {SongsService} from '../songs.service';
 
 
 export class SongSearchComponent {
-  enteredTitle = '';
+  results: Song;
+  searchTerm$ = new Subject<string>();
 
-  constructor(public songsService: SongsService) {}
-
-  onSearchSong(form: NgForm) {
-    if (form.invalid) {
-      return;
-    }
-    const title = form.value.title;
-    this.songsService.searchSong(title);
-    form.resetForm();
+  constructor(private songsService: SongsService) {
+  this.songsService.search(this.searchTerm$)
+    .subscribe(results => {
+      this.results = results.results;
+    });
   }
 }

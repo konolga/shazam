@@ -1,5 +1,14 @@
 .change-color:hover{
   color: #fff;
   background-color: bisque;
+}
+
+.button-row{
+  background-image:url(../../../assets/shazam.JPG);
+  width: 125px;
+  height: 45px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
   cursor: pointer;
 }
