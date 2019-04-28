@@ -12,7 +12,6 @@ import {HeaderComponent} from './header/header.component';
 import {LoaderService} from './components/shared/loader/loader.service';
 import {LoaderComponent} from './components/shared/loader/loader.component';
 import {LoaderInterceptor} from './interceptors/loader.interceptor';
-import {SongSearchComponent} from './songs/song-search/song-search.component';
 import {SongsService} from './songs/songs.service';
 
 
@@ -21,7 +20,6 @@ import {SongsService} from './songs/songs.service';
     AppComponent,
     SongListComponent,
     HeaderComponent,
-    SongSearchComponent,
     LoaderComponent
   ],
   imports: [

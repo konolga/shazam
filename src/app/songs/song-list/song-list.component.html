@@ -1,19 +1,31 @@
 
+  <form #songForm="ngForm">
+    <mat-form-field>
+      <input [(ngModel)]="searchTerm"
+        matInput
+        type="text"
+        name="title"
+        placeholder="Search song by title...">
+      </mat-form-field>
+    </form>
 
-    <mat-card class="change-color" ng-mouseover="hoverActive=true"
-    ng-mouseleave="hoverActive=false" multi = "true"  *ngFor="let song of songs" >
-        <mat-card-header *ngIf="songs.length > 0" >
-            <img mat-card-avatar src={{song.cover}} alt={{song.title}}>
-        <mat-card-title >
-        <span>{{ song.title | uppercase}}</span>
-        </mat-card-title>
-        <mat-card-subtitle>{{ song.subtitle }}</mat-card-subtitle>
-        <a  mat-button href={{song.link}} target="_blank">
-            <button class="button-row" ></button>
-        </a>
-      </mat-card-header>
-    </mat-card>
+    <div layout="row">
+          <mat-card class="change-color" ng-mouseover="hoverActive=true"
+          ng-mouseleave="hoverActive=false" multi = "true"  *ngFor="let song of filteredSongs; index as i" >
 
+            <mat-card-header *ngIf="songs.length > 0" >
+                  <img mat-card-avatar src={{song.cover}} alt={{song.title}}>
+              <mat-card-title >{{i+1}} {{ song.title | uppercase}}</mat-card-title>
+              <mat-card-subtitle>{{ song.subtitle }}</mat-card-subtitle>
+            </mat-card-header>
+            <div flex flex-offset= 50 >
+                <a  mat-button href={{song.link}} target="_blank"><button class="button-row" ></button></a>
+              </div>
+              <div flex>
+
+              </div>
+          </mat-card>
+      </div>
 
 
 
