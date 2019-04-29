@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import {MatCardModule, MatToolbarModule, MatInputModule, MatFormFieldModule, MatProgressSpinnerModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-
+import { FavoriteButtonComponent } from './components/shared/buttons/favorite-button.component';
 
 import { AppComponent } from './app.component';
 import {SongListComponent} from './songs/song-list/song-list.component';
@@ -20,7 +20,8 @@ import {SongsService} from './songs/songs.service';
     AppComponent,
     SongListComponent,
     HeaderComponent,
-    LoaderComponent
+    LoaderComponent,
+    FavoriteButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +33,7 @@ import {SongsService} from './songs/songs.service';
     MatFormFieldModule,
     MatProgressSpinnerModule,
     HttpClientModule
+
 
   ],
   providers: [SongsService, LoaderService,

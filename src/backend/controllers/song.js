@@ -1,7 +1,7 @@
-
+const express = require('express');
 const fs = require('fs');
 const request = require('request');
-
+const LocalStorage = require('node-localstorage').LocalStorage;
 
  const url = 'http://fullstack-test-server.herokuapp.com/api/songs'
 
@@ -38,15 +38,20 @@ let arr = [];
 
 exports.addToFavorites = (req, res)=>{
 
+  if (typeof localStorage === "undefined" || localStorage === null) {
+    localStorage = new LocalStorage('./scratch');
+  }
+
+if(localStorage.getItem(req)){
+  localStorage.removeItem(req);
 }
+else  {localStorage.setItem(req, "favorites");}
+}
+
+
 exports. getAllFavorites = (req, res)=>{
-  let arr = [];
-  request( options, (error, response, body) =>{
-    if (!error && response.statusCode == 200)
-      {
-        fs.writeFile('./src/backend/output.json', body,()=>{});
-      }
-      })
+  return Object.keys({...localStorage})
 }
+
 
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-
+import { Observable } from 'rxjs';
+import {Song} from './song.model';
 
 @Injectable({providedIn: 'root'})
 export class SongsService {
@@ -15,11 +15,11 @@ getSongs() {
   return this.httpClient.get(this.baseUrl);
 }
 
-getFavorites() {
+getFavorites(): Observable<Object> {
   return this.httpClient.get('http://localhost:8080/api/getAllFavorites');
 }
 
-addToFavorites(title: string){
+addToFavorites(title: string) {
   return this.httpClient.post('http://localhost:8080/api/addToFavorites', title);
 }
 

@@ -14,7 +14,14 @@
           ng-mouseleave="hoverActive=false" multi = "true"  *ngFor="let song of filteredSongs; index as i" >
 
             <mat-card-header *ngIf="songs.length > 0" >
-                  <img mat-card-avatar src={{song.cover}} alt={{song.title}}>
+
+          <!--  <app-favorite-button
+           [song]="song"
+           (toggleFavorite)="onAddToFavorites($event)"
+           >
+          </app-favorite-button> -->
+
+                  <img mat-card-avatar  src={{song.cover}} alt={{song.title}}>
               <mat-card-title >{{i+1}} {{ song.title | uppercase}}</mat-card-title>
               <mat-card-subtitle>{{ song.subtitle }}</mat-card-subtitle>
             </mat-card-header>

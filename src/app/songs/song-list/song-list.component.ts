@@ -33,12 +33,13 @@ filterSongs(searchString: string){
 }
    constructor(private songsService: SongsService) {}
 
-   ngOnInit() {
+ngOnInit() {
     this.songsService.getSongs().subscribe( (res: Song[]) => {this.songs = res; this.filteredSongs = this.songs;} );
-    }
-    onAddToFavorites(title: string){
-      this.songsService.addToFavorites(title);
-      this.songsService.getSongs().subscribe( (res: Song[]) => {this.songs = res; this.filteredSongs = this.songs;} );
-    }
+}
 
-  }
+onAddToFavorites(title: string){
+      this.songsService.addToFavorites(title);
+      this.songsService.getFavorites().subscribe( (res: Song[]) => {this.filteredSongs = res;} );
+}
+
+}
