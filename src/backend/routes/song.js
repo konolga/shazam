@@ -15,9 +15,9 @@ router.use((req, res, next) =>{
 
 //GET
 router.get("/api/songs", songsList)
-//router.get("/songs/favorites", getAllFavorites)
+router.get("/api/getAllFavorites", getAllFavorites)
 
-//PUT
-//router.put("/songs/:songId", addToFavorites)
+//POST
+router.post("/api/addToFavorites", addToFavorites)
 
 module.exports = router;

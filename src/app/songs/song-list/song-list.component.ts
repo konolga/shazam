@@ -34,7 +34,11 @@ filterSongs(searchString: string){
    constructor(private songsService: SongsService) {}
 
    ngOnInit() {
-    this.songsService.getSongs().subscribe( (res: Song[]) => {this.songs = res; this.filteredSongs = res; } );
-
+    this.songsService.getSongs().subscribe( (res: Song[]) => {this.songs = res; this.filteredSongs = this.songs;} );
     }
+    onAddToFavorites(title: string){
+      this.songsService.addToFavorites(title);
+      this.songsService.getSongs().subscribe( (res: Song[]) => {this.songs = res; this.filteredSongs = this.songs;} );
+    }
+
   }

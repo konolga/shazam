@@ -12,3 +12,18 @@
   background-position: center center;
   cursor: pointer;
 }
+mat-card-title
+{
+  cursor: pointer;
+}
+
+mat-card-title:hover:after,
+mat-card-title.fav:after{
+  content: ' \2605';
+  color: rgb(255, 203, 0);
+}
+
+mat-card-title.fav:hover:after{
+  content: ' \2606';
+  background-color:coral
+}

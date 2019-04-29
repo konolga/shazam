@@ -3,7 +3,9 @@ const fs = require('fs');
 const request = require('request');
 
 
-  const url = 'http://fullstack-test-server.herokuapp.com/api/songs'
+ const url = 'http://fullstack-test-server.herokuapp.com/api/songs'
+
+
   let options = {
     method: 'GET',
     json: false,
@@ -14,14 +16,12 @@ const request = require('request');
 
 
 
-
-
 exports.songsList = (req, res) => {
 let arr = [];
   request( options, (error, response, body) =>{
     if (!error && response.statusCode == 200)
       {
-        //fs.writeFile('./src/backend/output.json', body,()=>{});
+        fs.writeFile('./src/backend/output.json', body,()=>{});
         JSON.parse(body)["chart"].forEach(el=>
             {
               let title = el["heading"]["title"];
@@ -33,6 +33,19 @@ let arr = [];
             })
           }
         res.send(arr)
+      })
+}
+
+exports.addToFavorites = (req, res)=>{
+
+}
+exports. getAllFavorites = (req, res)=>{
+  let arr = [];
+  request( options, (error, response, body) =>{
+    if (!error && response.statusCode == 200)
+      {
+        fs.writeFile('./src/backend/output.json', body,()=>{});
+      }
       })
 }
 
