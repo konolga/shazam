@@ -1,0 +1,6 @@
+{
+"/": "api docs",
+"/api": "songsList",
+"/api/addToFavorites": "addToFavorites",
+"/api/getAllFavorites": "getAllFavorites"
+}

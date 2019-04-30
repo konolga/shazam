@@ -1,6 +1,0 @@
-{
-"/api": "api docs",
-"/api/songsList": "songsList",
-"/api/addToFavorites": "addToFavorites",
-"/api/getAllFavorites": "getAllFavorites"
-}
