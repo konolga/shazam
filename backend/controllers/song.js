@@ -1,6 +1,6 @@
 const express = require('express');
 const fs = require('fs');
-const request = require('request');
+const request = require('request-promise');
 const LocalStorage = require('node-localstorage').LocalStorage;
 
  const url = 'http://fullstack-test-server.herokuapp.com/api/songs'
