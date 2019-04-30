@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://shazam-backend.herokuapp.com'
+  apiUrl: "http://localhost:8080/api"
 };
 
 /*
