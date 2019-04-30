@@ -8,7 +8,7 @@
         {
 
             "name": "Launch Chrome against localhost",
-            "url": "http://shazam.w2udxxjcxy.us-east-2.elasticbeanstalk.com",
+            "url": "http://shazam-backend.herokuapp.com",
             "webRoot": "${workspaceFolder}"
         }
     ]

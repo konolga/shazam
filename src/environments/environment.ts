@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://shazam.w2udxxjcxy.us-east-2.elasticbeanstalk.com'
+  apiUrl: 'http://shazam-backend.herokuapp.com'
 };
 
 /*
